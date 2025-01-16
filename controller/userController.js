@@ -1,6 +1,7 @@
 import user from "../model/userModel.js";
 import bcrypt from "bcrypt";
 import  jwt from "jsonwebtoken";
+import Blog from "../model/blogModel.js";
 
 
 export const signup = async (req, res) => {
@@ -55,6 +56,10 @@ export const login = async (req, res) => {
        }
        
        
+      
+      
+
+
        console.log(userdata);
        
        // console.log(" Password:", password);
@@ -125,10 +130,11 @@ export const RenderContact = (req,res) =>{
     res.render('contact')
 };
 
-export const RenderHome = (req,res) =>{
-    
-    
-    res.render('home')
+export const RenderHome = async (req,res) =>{
+    const blogdata = await Blog.find()
+      console.log(blogdata);
+   
+    res.render('home', {blogdata})
 };
 
    

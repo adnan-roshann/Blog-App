@@ -152,22 +152,26 @@
                 <button type="submit">Create Blog</button>
             </form>
         </div>
-
+        <% blogdata.forEach((blog)=> { %>
+            
+         
         <div class="blog-section">
-            <h2>Blog Posts</h2>
+            <h2>Blog Contents</h2>
+        
 
             <div class="blog-card">
-                <h3>First Blog Post</h3>
-                <p>Short description of the first blog post...</p>
+                <h3><%- blog.title %></h3>
+                <p><%- blog.content %></p>
                 <a href="#">Read More</a>
             </div>
 
             <div class="blog-card">
-                <h3>Second Blog Post</h3>
-                <p>Short description of the second blog post...</p>
+                <h3><%- blog.title %></h3>
+                <p><%- blog.content %></p>
                 <a href="#">Read More</a>
             </div>
         </div>
+        <% }); %>
     </div>
 </body>
 </html>
