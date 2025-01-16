@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> User HomePage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eaeaea;
+        }
+
+        header {
+            background-color: #5f0303;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+        }
+
+        .profile h1 {
+            margin: 0.5rem 0;
+            color: #380505;
+        }
+
+        .create-blog {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        .create-blog h2 {
+            margin-bottom: 1rem;
+            color: #4b0606;
+        }
+
+        .create-blog form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .create-blog label {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .create-blog input,
+        .create-blog textarea {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .create-blog button {
+            padding: 0.5rem 1rem;
+            background-color: #490404;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .create-blog button:hover {
+            background-color: #6e1616;
+        }
+
+        .blog-section {
+            margin-top: 2rem;
+        }
+
+        .blog-section h2 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .blog-card {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+        }
+
+        .blog-card h3 {
+            margin: 0;
+            color: #555;
+        }
+
+        .blog-card p {
+            margin: 0.5rem 0;
+            color: #666;
+        }
+
+        .blog-card a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .blog-card a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><marquee>User Page</marquee></h1>
+    </header>
+
+    <div class="container">
+        <div class="profile">
+            <img src="#" alt="">
+            <h1>Username</h1>
+            <p>Welcome to the user page.</p>
+        </div>
+
+        <div class="create-blog">
+            <h2>Create a New Blog Post</h2>
+            <form action="#" method="post">
+                <label for="blog-title">Title</label>
+                <input type="text" id="blog-title" name="blog-title" placeholder="Enter your blog title" required>
+
+                <label for="blog-content">Content</label>
+                <textarea id="blog-content" name="blog-content" rows="5" placeholder="Write your blog content here..." required></textarea>
+
+                <button type="submit">Create Blog</button>
+            </form>
+        </div>
+
+        <div class="blog-section">
+            <h2>Blog Posts</h2>
+
+            <div class="blog-card">
+                <h3>First Blog Post</h3>
+                <p>Short description of the first blog post...</p>
+                <a href="#">Read More</a>
+            </div>
+
+            <div class="blog-card">
+                <h3>Second Blog Post</h3>
+                <p>Short description of the second blog post...</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
