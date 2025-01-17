@@ -136,6 +136,7 @@ export const RenderHome = async (req,res) =>{
       console.log(blogdata);
     console.log(userdata);
     res.render('home', {blogdata,userdata})
+    
 };
 
    
