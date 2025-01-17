@@ -1,1 +1,106 @@
-<h1>BLOGS</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MyBlog</title>
+    <style>
+         
+       body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .listed-heading{
+            margin-left: 20px;
+        }
+        .blankbox {
+            width: 800px;
+            height: 600px;
+            border: 2px solid #000;
+            margin: 20px;
+            
+        }
+
+        .container {
+            max-width: 300px;
+            width: 100%;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .container h1 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .input-box {
+            margin: 15px 0;
+            width: 100%;
+        }
+
+        .input-box input, .input-box textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .input-box textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        .submit-btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    
+
+</head>    
+<body> 
+    <div class="blog-list">
+        <h2 class="listed-heading">All Blogs</h2>
+        <p class="blankbox"></p>
+        <div>
+            <p></p>
+        </div>
+        
+        
+    </div>
+    <div class="container">
+        <h1>Create Your Blog</h1>
+        <form action="/blog/Create" method="post">
+            <div class="input-box">
+                <label for="title">Blog Title</label>
+                <input type="text" id="title" name="title" placeholder="Enter your blog title" required>
+            </div>
+            <div class="input-box">
+                <label for="content">Content</label>
+                <textarea id="content" name="content" placeholder="Write your blog content" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Create Blog</button>
+        </form>
+    </div>
+</body>
+</html>

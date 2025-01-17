@@ -18,10 +18,10 @@ export const createBlog = async (req, res) => {
   };
 
 
-  export const RendermyBlog = (req,res) =>{
+  export const RendermyBlog = async (req,res) =>{
     
-    
-    res.render('myBlog')
+  const blogs = await Blog.find({author: req.user.id})
+    res.render('myBlog',blogs)
   }
 
 

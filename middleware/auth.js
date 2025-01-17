@@ -6,11 +6,11 @@ dotenv.config();
 
 export const authenticateToken = (req, res, next) => {  
     const token = req.cookies.authToken || req.headers["authorization"]?.split(" ")[1];
-  if (!token) return res.redirect("/users/login");
+  if (!token) return res.redirect("/user/login");
   try {   
     const verified = jwt.verify(token, process.env.JWT_SECRET);
     req.user = verified;    
     next();
   } catch (err) {    
-    res.redirect("/users/login");
-  }};
+    res.redirect("/user/login");
+  }}; 
