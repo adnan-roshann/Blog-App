@@ -1,5 +1,6 @@
 import express from 'express';
  import { signup,login, RenderSignup, RenderLogin, RenderAbout, RenderContact, RenderHome } from '../controller/userController.js';
+import { authenticateToken } from '../middleware/auth.js';
 
  const router = express.Router();
 
@@ -10,6 +11,6 @@ import express from 'express';
  router.get('/login',RenderLogin);
  router.get('/About',RenderAbout);
  router.get('/Contact',RenderContact);
- router.get('/home',RenderHome);
+ router.get('/home',authenticateToken,RenderHome);
   
  export default router;

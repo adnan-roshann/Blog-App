@@ -132,9 +132,10 @@ export const RenderContact = (req,res) =>{
 
 export const RenderHome = async (req,res) =>{
     const blogdata = await Blog.find()
+    const userdata = await user.findOne({id:req.user.id});
       console.log(blogdata);
-   
-    res.render('home', {blogdata})
+    console.log(userdata);
+    res.render('home', {blogdata,userdata})
 };
 
    
