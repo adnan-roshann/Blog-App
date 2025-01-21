@@ -1,10 +1,12 @@
-import express from 'express';
-import { createBlog,listBlogs,RendermyBlog } from '../controller/blogController.js';
-import { authenticateToken } from '../middleware/auth.js';
+import express from "express";
+import { createBlog, listBlogs ,rendermyBlog} from "../controller/blogController.js"; 
+import { authenticateToken } from "../middleware/auth.js";
+
 const blogRouter = express.Router();
 
-blogRouter.post('/create',authenticateToken,createBlog);
-blogRouter.get('/getblog',authenticateToken,listBlogs);
-blogRouter.get('/myblog',RendermyBlog)
+// Route for creating a new blog
+blogRouter.post("/create",authenticateToken, createBlog);
+blogRouter.get('/getallblogs',authenticateToken,listBlogs);
+blogRouter.get('/createmyBlog',authenticateToken,rendermyBlog);
 
 export default blogRouter;

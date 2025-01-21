@@ -1,16 +1,14 @@
-import express from 'express';
- import { signup,login, RenderSignup, RenderLogin, RenderAbout, RenderContact, RenderHome } from '../controller/userController.js';
-import { authenticateToken } from '../middleware/auth.js';
+import express from "express";
+import { signup,login, renderSignup,renderLogin, renderHome} from "../controller/userController.js";
 
- const router = express.Router();
+const router = express.Router();
+
+// Define the signup route ,login route
+router.post('/signup', signup);
+router.post('/login', login);
+router.get('/signup',renderSignup);
+router.get('/login',renderLogin)
+router.get('/home',renderHome);
 
 
- router.post('/signup',signup);
- router.post('/login',login);
- router.get('/signup',RenderSignup);
- router.get('/login',RenderLogin);
- router.get('/About',RenderAbout);
- router.get('/Contact',RenderContact);
- router.get('/home',authenticateToken,RenderHome);
-  
- export default router;
+export default router;

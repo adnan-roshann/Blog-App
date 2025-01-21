@@ -5,5 +5,5 @@ author: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
 });
 
 
- const Blog =   mongoose.model("Blog", blogSchema);
+const Blog = mongoose.model("Blog", blogSchema);
 export default Blog;
