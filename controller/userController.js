@@ -111,3 +111,7 @@ export const renderHome =  async (req,res) =>{
 export const renderLogin =  (req,res) =>{
     res.render('login')
 }
+
+export const renderuserProfile =  (req,res) =>{
+    res.render('profile')
+}

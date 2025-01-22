@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .profile-header {
+            text-align: center;
+            padding: 20px;
+            background-color: #141313;
+            color: white;
+            border-radius: 8px;
+        }
+        .profile-header img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border: 3px solid white;
+        }
+        .profile-header h1 {
+            margin: 10px 0;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .tabs button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #141313;
+            color: white; 
+            cursor: pointer;
+        }
+        .tabs button:hover {
+            background-color: #071041;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .blog-list {
+            list-style: none;
+            padding: 0;
+        }
+        .blog-list li {
+            background: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .blog-list li h3 {
+            margin: 0;
+        }
+        .blog-list li p {
+            margin: 5px 0 0;
+            color: gray;
+        }
+        .Plus-button{
+            padding-left: 1100px;
+        
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <div class="profile-header">
+        <div class="Plus-button" > Create <a href="/blog/createmyBlog"> <svg xmlns="http://www.w3.org/2000/svg" width="40"  height="40" fill="white" class="bi bi-journal-plus" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5"/>
+            <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"/>
+            <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>
+          </svg></a>
+        </div>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALsAAACUCAMAAAD8tKi7AAAAMFBMVEXk5ueutLepsLPU2Nnn6eqxt7rGyszS1dfh4+TY29zc3+DAxcfq7O3Lz9G9wsS1u77vo9aMAAAEaklEQVR4nO2cyZbjMAhFZRmNtqT//9uWXZXESWXQgA057btK9+oVBwNCICFOTk5OTk5qAaBW0ADMs3DOZLwX8/xFf4IddZIbonaWWlMBILyJSsrhjvzvyXjB2vwAq8WHJ0iZtGPs/+CzyZ8J/5WvJs9UPIjpte4LmqV4GIc3Nr+5jqMW+gewukD5ql5bXrbPnl4oPYuPnlruFvCpVPlCcnwsD65G+WJ6PvHGFfvLVTwTy1dbfUGxCDfgqnz9QuLwwdryCHNHpBaezV4a1x+ReqaWPjZKz+JH4u/VtirPKNqiHqZmsw/EhVmuv3pQpFE+dmmXE51yMF3SM3QZqjW0czB8SzHwAFl2bU1LG8NThZqe2H4VT5NcO1LqRjtNcp37AuQvE4nhZwSz5/xEIV14FO0DRW5tLn4fCATa56bj0l8mio9V4WiPBJWwx5FOcXDtLH832o//WPtryF+UOV57QNJOEGhAI0mXBNoLLgrYaj/tftr9f9L+zTESTTtBbsKqCSiaYx6pjiS5RPjiGhjr7BFJznw42km6S/U3k08hadDg9DgGAuVYDh9JektgMHp6x2emFYuhnerWBqGHTdOOFBh3B5Ls7qD/zobuYr67lpQjmXZh+8KkpKhlLnQ2mBTpRAF0eTxJC/imvSfGK+JhQwjtMyhEKXVD6ySHpKlk7miNNYlauFgO3U2HP8Vh1q0tUNKGxw31xTD5rNiV6kqeQYi5UttocvQh5gaMqdz0nMawF8CXxnnJb+kDRCjbmTAsV4X8Z7+RLEaYnwDz+CHHJlYf6T0A5uWGk1TRMN7NEovbj2HZ5XsUPkQ9snT0O0BYZ+LdLqKKwVn+ym94E4LWIYxMv87XwMKcWX9QqyliFWqt9c658Yf8y3tvBec/YlHmncl+EmNKSl2q+vwrpRQnHUx2H376YQbrwip5+BtkfvJp/t/8R0RtPPDZgc6mNLrm4JfDjmVg/uzc/lk8/8CyAz2SbnsA+DUR1em+yld0K9zLbnYsKR3fyE+Tscc7/yxCRLgclkPS/tj6DATWBMpCPO4clcO4bnTyF8h0zNsLAE53eflz9dHs31gFr989QdAufojjvjEfICBNQDxRr+Kepm9csy1nt/Gr8icImslH8X3U17SP2gl7RBzMiP6OiG16EDt7+haDmmgBa8mgCNxFOYxpkxrxiHfGaGOc5eKRnB5t8rdGfELJUzOB9EU8wrEEa32sGgTLU0lHaHcf/pluxPdFG7Rh60bxPV6DsdXcIz60Z1hAGrVuF998ku17bAOF1qkDtI29HhofX6h7d2svTJP29okkTFJLoERaJe9F6nrpfRN4iMhqwwMTs7fMlWFtoiBQ+4DdsYe8D1TOmQPKWxtIVCYoHrH9QlW7DG/REIWqYrh7KB+XqnVFXi6Ta+EKlzm4H/ORmtUKskPqC2pe3uMUIRcq1nEs9XnpEVleCbOpZS5UdFcxHt/CpbxjwOPUsUWVas9nbHYU292ZkRk1p1ZgRoX0k5MTbvwD+KxB2B0JOnUAAAAASUVORK5CYII=" alt="User Profile Picture">
+        <h1>User Name</h1>
+        
+        <p>Short bio or description about the user</p>
+   
+    </div>
+
+    <div class="tabs">
+        <button onclick="switchTab('my-blogs')">My Blogs</button>
+    </div>
+
+    <div id="my-blogs" class="content-section active">
+        <h2>My Blogs</h2>
+        <ul class="blog-list">
+            <li>
+                <h3>Blog Title 1</h3>
+                <p>Published </p>
+            </li>
+            <li>
+                <h3>Blog Title 2</h3>
+                <p>Published </p>
+            </li>
+        </ul>
+    </div>
+  <div class="Back-button"> <a href="/user/Home"><svg xmlns="http://www.w3.org/2000/svg"  width="50" height="50" fill="black" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0z"/>
+        <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+      </svg></a></div>
+</div>
+
+<script>
+    function switchTab(tabId) {
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.classList.remove('active');
+        });
+        document.getElementById(tabId).classList.add('active');
+    }
+</script>
+
+</body>
+</html>
